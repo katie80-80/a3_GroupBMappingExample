@@ -4,24 +4,32 @@
 	console.log(" SEAF fired");
 	
 	//variables
-	var map, marker;
+	var map= new google.maps.Map(document.querySelector('.map-wrapper')), marker;
 	
 	//functions
-	function initMap(){
-		map = new google.maps.Map(document.querySelector('.map-wrapper'),
-			{
-				center: { lat:42.983233, lng: -81.250688 },
-				zoom: 14
-			}
-		);
+	function initMap(position){
+		map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude});
+
+		map.setZoom(16);
 
 		marker = new google.maps.Marker({
-			position : {lat:42.983233, lng: -81.250688},
+			position : {lat: position.coords.latitude, lng: position.coords.longitude},
 			map: map,
 			title: 'hello World!'
 		});
 	}
-	initMap();
+
+
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(initMap, handleError);
+	} else {
+		console.log("no geolocation for you!");		
+	}
+
+	function handleError(e){
+		console.log(e);
+	}
+
 	//listeners
 	
 	})();
