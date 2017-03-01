@@ -5,10 +5,18 @@
 <title>Simple Maps Example</title>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1_gGDd-jX-B6Uz-yxixAavUti1pa2g1A"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 	<body>
-	<h1>Google Maps and Geolocation</h1>
+	<h4>Google Maps and Geolocation</h4>
+	<div class="preload-wrapper">
+		<i class="fa fa-spinner fa-spin"></i>
+		<span>loading map, please wait...</span>
+	</div>
 		<div class="map-wrapper"></div>
+		<h4 class="geocode-header">Using the GeoCode API</h4>
+		<input type="textbox" class="address">
+		<button class="geocode">Find Address</button>
 	</body>
 <script src="js/main.js"></script>
 </html>
